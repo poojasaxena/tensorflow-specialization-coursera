@@ -5,11 +5,12 @@ fig.patch.set_facecolor('white')
 
 def plot_n_model(num_history=2, model_history_names=[],
           ylim_low=0.4, ylim_high=1.0, 
-          label_list=[]    ,       
+          label_list=[],       
           leg_loc='lower left',
           is_sparse_categorical=False,       
           is_saved_history=False):
     """
+
     num_history: no of history to be plotted
     model_history_names : list of history name, ex [history_1, history_2]
     label_list : list of label names, ex ['simple_model', 'model_cnn']
@@ -36,7 +37,7 @@ def plot_n_model(num_history=2, model_history_names=[],
     """
     fig = plt.figure(figsize=(15,5))
 
-    assert(len(model_history) ==num_history)
+    assert(len(model_history) == num_history), 'Error, model_history should be of length num_history!'
     
     if is_sparse_categorical:
         acc_variable = ['sparse_categorical_accuracy', 'val_sparse_categorical_accuracy']
