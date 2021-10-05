@@ -9,9 +9,9 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 fig.patch.set_facecolor('white')
 
-def plot_n_model(num_history=2, name_history,
+def plot_n_model(num_history=2, name_history=[],
           ylim_low=0.4, ylim_high=1.0, 
-          label_list,       
+          label_list=[],       
           leg_loc='lower left',
           is_sparse_categorical=False,       
           is_saved_history=False):
