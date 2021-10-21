@@ -12,7 +12,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 def upload_kaggle_dataset(kaggle_dataset_name, base_dir_name):
     """
-    kaggle_dataset_name: name of the dataset to be downloaded
+    kaggle_dataset_name: name of the dataset to be downloaded, 
     base_dir_name: some directory where it suppose to be downloaded
     """
     if os.path.exists(base_dir_name):
@@ -22,9 +22,9 @@ def upload_kaggle_dataset(kaggle_dataset_name, base_dir_name):
         print("Authenticating kaggle API======")
         api=KaggleApi()
         api.authenticate()
+        print("Authenticated, downloading Dataset =======")
         api.competition_download_files(kaggle_dataset_name)
     
-        logger.debug("Authenticated, downloading Dataset =======")
         with zipfile.ZipFile(kaggle_dataset_name+'.zip', mode='r') as zip_ref:
             zip_ref.extractall(base_dir_name)
             zip_ref.close()
