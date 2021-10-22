@@ -15,7 +15,7 @@ def upload_kaggle_dataset(kaggle_dataset_name, base_dir_name):
     kaggle_dataset_name: name of the dataset to be downloaded, 
     base_dir_name: some directory where it suppose to be downloaded
     """
-    if os.path.exists(base_dir_name):
+    if os.path.isfile(os.path.join(base_dir_name, kaggle_dataset_name)):
         print(f"Dataset {kaggle_dataset_name} is avalable in {base_dir_name} with content: \n {os.listdir(base_dir_name)}")
         return
     else:
