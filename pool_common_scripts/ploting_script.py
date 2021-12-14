@@ -70,8 +70,8 @@ def plot_n_model(num_history=2, name_history=[],
         plt.grid(True)
         plt.legend(loc=leg_loc)
         plt.title('Training - , Validation ---')
+        plt.ylim(ylim_low,ylim_high)
 
-        
     plt.subplot(1,2,2)
     for index, history in enumerate(name_history):
 
