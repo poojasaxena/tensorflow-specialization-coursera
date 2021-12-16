@@ -10,7 +10,8 @@ fig = plt.figure()
 fig.patch.set_facecolor('white')
 
 def plot_n_model(num_history=2, name_history=[],
-          ylim_low=0.4, ylim_high=1.0, 
+          ylim_low_left=0.4, ylim_high_left=1.0,
+          ylim_low_right=0.4, ylim_high_right=1.0,
           label_list=[],       
           leg_loc='lower left',
           is_sparse_categorical=False,       
@@ -19,8 +20,8 @@ def plot_n_model(num_history=2, name_history=[],
     num_history           : no of history to be plotted
     name_history          : list of history name, ex [history_1, history_2]
     label_list            : list of label names, ex ['simple_model', 'model_cnn']
-    y_lim_low             : lowest y scale
-    y_lim_high            : highest y scale
+    y_lim_low             : lowest y scale for left, right plot
+    y_lim_high            : highest y scale for left, right plot
     leg_loc               : location of legend ex: 'lower left', 'lower right', 'upper right', 'upper left'
     is_sparse_categorical : True, if sparse_categorical_accuracy is being used. 
     is_saved_history      : if plotting saved history via pickle
@@ -70,7 +71,7 @@ def plot_n_model(num_history=2, name_history=[],
         plt.grid(True)
         plt.legend(loc=leg_loc)
         plt.title('Training - , Validation - -')
-        plt.ylim(ylim_low,ylim_high)
+        plt.ylim(ylim_low_left, ylim_high_left)
 
     plt.subplot(1,2,2)
     for index, history in enumerate(name_history):
@@ -83,13 +84,13 @@ def plot_n_model(num_history=2, name_history=[],
             plt.plot(history.history[loss_variable[1]],  c=color[index],ls=line_style[1])
             
         plt.title('Training - , Validation - -')
-        plt.ylim(ylim_low,ylim_high)
+        plt.ylim(ylim_low_right, ylim_high_right)
         
     plt.xlabel('Epoch')
     plt.ylabel(loss_variable[0])
     plt.grid(True)
     plt.legend(loc=leg_loc)
-    plt.ylim(ylim_low,ylim_high)
+    #plt.ylim(ylim_low,ylim_high)
     plt.show()
     
 ##help(plot_n_model)
