@@ -1,2 +1,0 @@
-1. For local Testing plotting_script:
-   $ python3 call_ploting_module_and_saved_history.py ## make sure help() function is commented
